@@ -1,17 +1,12 @@
- # <p align="center"> <font color=#008000>TANGO</font>: <font color=#008000>T</font>ext-driven Photore<font color=#008000>a</font>listic a<font color=#008000>n</font>d Robust 3D Stylization via Li<font color=#008000>g</font>hting Dec<font color=#008000>o</font>mposition </p>
+ # <p align="center"> <font color=#008000>Accurate 3D Stylization with Multiple Prompt</p>
 
- #####  <p align="center"> [Yongwei Chen](https://cyw-3d.github.io/), Rui Chen, [Jiabao Lei](https://jblei.site/), [Yabin Zhang](https://ybzh.github.io/), [Kui Jia](http://kuijia.site/)</p>
+ #####  <p align="center"> [Siwon Kim](github.com/kimww42)</p>
 
-#### <p align="center"> NeurIPS 2022 <font color=#dd0000>*Spotlight*</font></p>
-
-#### <p align="center">[Paper](http://arxiv.org/abs/2210.11277) | [Project Page](http://cyw-3d.github.io/tango) </p>
+#### <p align="center"> 2024 하계계절 <font color=#dd0000>자기주도연구1</font></p>
 
 <p align="center">
   <img width="100%" src="https://github.com/Gorilla-Lab-SCUT/tango/blob/main/tango_assets/stylization.gif"/>
 </p>
-
-### News
-:trophy: **[Nov 11th 2022]** TANGO was selected  in NeurIPS *[spotlight papers](https://nips.cc/Conferences/2022/Schedule?type=Spotlight)*.
 
 ### Installation
 
@@ -54,15 +49,3 @@ Call the below shell scripts to generate gif.
 <!-- <p align="center">
   <img width="100%" src="./tango_assets/method.jpg"/>
 </p> -->
-
-## Citation
-```
-@article{chen2022tango,
-  title={Tango: Text-driven photorealistic and robust 3d stylization via lighting decomposition},
-  author={Chen, Yongwei and Chen, Rui and Lei, Jiabao and Zhang, Yabin and Jia, Kui},
-  journal={Advances in Neural Information Processing Systems},
-  volume={35},
-  pages={30923--30936},
-  year={2022}
-}
-```
