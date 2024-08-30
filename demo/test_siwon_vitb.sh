@@ -1,0 +1,21 @@
+sh ./demo/test_siwon_bird.sh
+sh ./demo/test_siwon_whale.sh
+sh ./demo/test_siwon_candle.sh
+sh ./demo/test_siwon_chair.sh
+sh ./demo/test_siwon_dragon.sh
+sh ./demo/test_siwon_horse.sh
+sh ./demo/test_siwon_person.sh
+sh ./demo/test_siwon_sofa.sh
+sh ./demo/test_siwon_squirrel.sh
+sh ./demo/test_siwon_car.sh
+
+sh ./demo/test_siwon_bird_vitl.sh
+sh ./demo/test_siwon_whale_vitl.sh
+sh ./demo/test_siwon_candle_vitl.sh
+sh ./demo/test_siwon_chair_vitl.sh
+sh ./demo/test_siwon_dragon_vitl.sh
+sh ./demo/test_siwon_horse_vitl.sh
+sh ./demo/test_siwon_person_vitl.sh
+sh ./demo/test_siwon_sofa_vitl.sh
+sh ./demo/test_siwon_squirrel_vitl.sh
+sh ./demo/test_siwon_car_vitl.sh

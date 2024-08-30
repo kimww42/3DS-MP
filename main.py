@@ -35,6 +35,7 @@ def train(args):
     torch.backends.cudnn.benchmark = False
     torch.backends.cudnn.deterministic = True
     objbase, extension = os.path.splitext(os.path.basename(args.obj_path))
+
     # Check that isn't already done
     if (not args.overwrite) and os.path.exists(os.path.join(args.output_dir, "loss.png")) and \
             os.path.exists(os.path.join(args.output_dir, f"{objbase}_final.obj")):
@@ -82,27 +83,60 @@ def train(args):
                              args.normal_random_pe_sigma,
                              args.if_normal_clamp
                             )
+    '''
+    model2 = NeuralStyleField(args.material_random_pe_numfreq,
+                             args.material_random_pe_sigma,
+                             args.num_lgt_sgs,
+                             args.max_delta_theta,
+                             args.max_delta_phi,
+                             args.normal_nerf_pe_numfreq,
+                             args.normal_random_pe_numfreq,
+                             args.symmetry,
+                             args.radius,
+                             args.background,
+                             args.init_r_and_s,
+                             args.width,
+                             args.init_roughness,
+                             args.init_specular,
+                             args.material_nerf_pe_numfreq,
+                             args.normal_random_pe_sigma,
+                             args.if_normal_clamp
+                            )
+    '''
+
     if torch.cuda.is_available():
         model.cuda()
+        # model2.cuda()
 
      
     model.train()
+    # model2.train()
     optim = torch.optim.AdamW(model.parameters(), args.learning_rate)
+    # optim2 = torch.optim.AdamW(model2.parameters(), args.learning_rate)
 
     lr_scheduler = torch.optim.lr_scheduler.MultiStepLR(optim,
                                                         [500,1000],
                                                         args.lr_decay)
+    # lr_scheduler2 = torch.optim.lr_scheduler.MultiStepLR(optim2,[500,1000],args.lr_decay)
    
     if args.prompt:
         prompt = ' '.join(args.prompt)
-        prompt_token = clip.tokenize([prompt]).to(device)
+        split_prompt = prompt.split(';')
+        print(split_prompt[0])
+        print(split_prompt[1])
+
+        prompt_token = clip.tokenize([split_prompt[0]]).to(device)
         encoded_text = clip_model.encode_text(prompt_token)
+
+        prompt_token = clip.tokenize([split_prompt[1]]).to(device)
+        encoded_text2 = clip_model.encode_text(prompt_token)
 
         # Save prompt
         with open(os.path.join(dir, prompt), "w") as f:
             f.write("")
 
         norm_encoded = encoded_text
+        norm_encoded2 = encoded_text2
     # ipdb.set_trace()
 
     mesh = get_normalize_mesh(args.obj_path)
@@ -110,11 +144,13 @@ def train(args):
     scene = o3d.t.geometry.RaycastingScene()
     scene.add_triangles(mesh)
     trainer = tqdm(range(args.n_iter))
+
+    alpha = 0.1
+
+
     for i in trainer:
         optim.zero_grad()
 
-        
-        
         rendered_images = model(scene=scene, 
                                 num_views=args.n_views,
                                 center_azim=args.frontview_center[0],
@@ -122,57 +158,71 @@ def train(args):
                                 std=args.frontview_std,
                                 )
         rendered_images = rendered_images.cuda()
-   
 
         if n_augs > 0:
             loss = 0.0
             for _ in range(n_augs):
                 augmented_image = augment_transform(rendered_images[:,0:3,:,:])
+
                 if i % 20 == 0:
-                    torchvision.utils.save_image(augmented_image, os.path.join(dir, 'iter_global{}.jpg'.format(i)))
+                    torchvision.utils.save_image(augmented_image, os.path.join(dir, 'prompt1_iter_global{}.jpg'.format(i)))
+                    # torchvision.utils.save_image(augmented_image2, os.path.join(dir, 'prompt2_iter_global{}.jpg'.format(i)))
                 encoded_renders = clip_model.encode_image(augmented_image)
+                # encoded_renders2 = clip_model.encode_image(augmented_image2)
+
                 if args.prompt: 
                     if args.clipavg == "view":
                         if encoded_text.shape[0] > 1:
-                            loss -= torch.cosine_similarity(torch.mean(encoded_renders, dim=0),
-                                                            torch.mean(encoded_text, dim=0), dim=0)
+                            loss -= torch.cosine_similarity(torch.mean(encoded_renders, dim=0), torch.mean(encoded_text, dim=0), dim=0) + \
+                                    torch.cosine_similarity(torch.mean(encoded_renders, dim=0), torch.mean(encoded_text2, dim=0), dim=0)
                         else:
-                            loss -= torch.cosine_similarity(torch.mean(encoded_renders, dim=0, keepdim=True),
-                                                            encoded_text)
+                            loss -= torch.cosine_similarity(torch.mean(encoded_renders, dim=0, keepdim=True), encoded_text) + \
+                                    torch.cosine_similarity(torch.mean(encoded_renders, dim=0, keepdim=True), encoded_text2)
                     else:
-                        loss -= torch.mean(torch.cosine_similarity(encoded_renders, encoded_text))
+                        loss -= torch.mean(torch.cosine_similarity(encoded_renders, encoded_text)) + torch.mean(torch.cosine_similarity(encoded_renders, encoded_text2))
                     
         loss.backward(retain_graph=True)
         if args.n_normaugs > 0:
             normloss = 0.0
             for _ in range(args.n_normaugs):
                 augmented_image = normaugment_transform(rendered_images)
+                # augmented_image2 = normaugment_transform(rendered_images2)
+
                 shape = augmented_image.shape[0]*augmented_image.shape[2]*augmented_image.shape[3]
+                # shape2 = augmented_image2.shape[0]*augmented_image2.shape[2]*augmented_image2.shape[3]
+
                 object_percent = torch.sum(augmented_image[:,3,:,:]==1) / shape
+                # object_percent2 = torch.sum(augmented_image2[:,3,:,:]==1) / shape2
+
                 while object_percent <= args.local_percentage: 
                     augmented_image = normaugment_transform(rendered_images)
+                    # augmented_image2 = normaugment_transform(rendered_images2)
                     object_percent = torch.sum(augmented_image[:,3,:,:]==1) / shape
+                    # object_percent2 = torch.sum(augmented_image2[:,3,:,:]==1) / shape2
 
                 augmented_image = augmented_image[:,0:3,:,:]
+                # augmented_image2 = augmented_image2[:,0:3,:,:]
                 if i % 20 == 0:
-                    torchvision.utils.save_image(augmented_image, os.path.join(dir, 'iter_local{}.jpg'.format(i)))
+                    torchvision.utils.save_image(augmented_image, os.path.join(dir, 'prompt1_iter_local{}.jpg'.format(i)))
+                    #torchvision.utils.save_image(augmented_image2, os.path.join(dir, 'prompt2_iter_local{}.jpg'.format(i)))
                 encoded_renders = clip_model.encode_image(augmented_image)
+                # encoded_renders2 = clip_model.encode_image(augmented_image2)
+
                 if args.prompt:
                     if args.clipavg == "view":
                         if norm_encoded.shape[0] > 1:
-                            normloss -= normweight * torch.cosine_similarity(torch.mean(encoded_renders, dim=0),
-                                                                                torch.mean(norm_encoded, dim=0),
-                                                                                dim=0)
+                            normloss -= normweight * torch.cosine_similarity(torch.mean(encoded_renders, dim=0), torch.mean(norm_encoded, dim=0), dim=0) + \
+                                        normweight * torch.cosine_similarity(torch.mean(encoded_renders, dim=0), torch.mean(norm_encoded2, dim=0), dim=0)
                         else:
-                            normloss -= normweight * torch.cosine_similarity(
-                                torch.mean(encoded_renders, dim=0, keepdim=True),
-                                norm_encoded)
+                            normloss -= normweight * torch.cosine_similarity(torch.mean(encoded_renders, dim=0, keepdim=True), norm_encoded) + \
+                                        normweight * torch.cosine_similarity(torch.mean(encoded_renders, dim=0, keepdim=True), norm_encoded2) 
                     else:
-                        normloss -= normweight * torch.mean(
-                            torch.cosine_similarity(encoded_renders, norm_encoded))
+                        normloss -= normweight * torch.mean(torch.cosine_similarity(encoded_renders, norm_encoded)) + normweight * torch.mean(torch.cosine_similarity(encoded_renders, norm_encoded2))
             normloss.backward(retain_graph=True)
+
         optim.step()
         lr_scheduler.step()
+
         with torch.no_grad():
             losses.append(loss.item())
         if args.decayfreq is not None:

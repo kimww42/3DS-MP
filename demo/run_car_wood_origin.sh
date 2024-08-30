@@ -1,7 +1,7 @@
-python main.py \
+CUDA_VISIBLE_DEVICES=2 python main.py \
 --obj_path data/source_meshes/car_face64962.obj \
---output_dir results/demo/car/wood \
---prompt a car made of wood  \
+--output_dir results/demo/car/lambo \
+--prompt yellow car with black spoiler  \
 --normal_nerf_pe_numfreq 10  \
 --init_r_and_s \
 --init_roughness 0.5 \
@@ -9,7 +9,7 @@ python main.py \
 --local_percentage 0.7 \
 --background 'black' \
 --radius 2  \
---n_views 1 \
+--n_views 3 \
 --material_nerf_pe_numfreq 12 \
 --num_lgt_sgs 32 \
 --n_normaugs 4 \
@@ -20,6 +20,6 @@ python main.py \
 --mincrop 0.01 \
 --maxcrop 0.05 \
 --seed 150 \
---n_iter 301 \
+--n_iter 1501 \
 --learning_rate 0.0005 \
 --frontview_center 1.96349 0.6283

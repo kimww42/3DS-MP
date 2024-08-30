@@ -1,0 +1,342 @@
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/candle.obj \
+--output_dir results/demo/candle/rainbowflame \
+--prompt Golden candle with a rainbow flame. \
+--prompt2 Golden candle with a blue flame. \
+--prompt3 Golden candle with a green flame. \
+--prompt4 Golden candle with a white flame. \
+--prompt5 Golden candle with a black flame. \
+--clipmodel ViT-B/32 \
+--init_r_and_s \
+--init_roughness 0.1 \
+--max_delta_theta 0.32359 \
+--max_delta_phi 0.32359 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black'  \
+--radius 2 \
+--n_views 1 \
+--material_random_pe_numfreq 3 \
+--material_random_pe_sigma 0.5 \
+--num_lgt_sgs 64 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 16 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.05 \
+--maxcrop 0.05 \
+--seed 250 \
+--n_iter 1501 \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283 \
+--render_gif
+
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/candle.obj \
+--output_dir results/demo/candle/blueflame \
+--prompt Golden candle with a blue flame. \
+--prompt2 Golden candle with a rainbow flame. \
+--prompt3 Golden candle with a green flame. \
+--prompt4 Golden candle with a white flame. \
+--prompt5 Golden candle with a black flame. \
+--clipmodel ViT-B/32 \
+--init_r_and_s \
+--init_roughness 0.1 \
+--max_delta_theta 0.32359 \
+--max_delta_phi 0.32359 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black'  \
+--radius 2 \
+--n_views 1 \
+--material_random_pe_numfreq 3 \
+--material_random_pe_sigma 0.5 \
+--num_lgt_sgs 64 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 16 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.05 \
+--maxcrop 0.05 \
+--seed 250 \
+--n_iter 1501 \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283 \
+--render_gif
+
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/candle.obj \
+--output_dir results/demo/candle/greenflame \
+--prompt Golden candle with a green flame. \
+--prompt2 Golden candle with a blue flame. \
+--prompt3 Golden candle with a rainbow flame. \
+--prompt4 Golden candle with a white flame. \
+--prompt5 Golden candle with a black flame. \
+--clipmodel ViT-B/32 \
+--init_r_and_s \
+--init_roughness 0.1 \
+--max_delta_theta 0.32359 \
+--max_delta_phi 0.32359 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black'  \
+--radius 2 \
+--n_views 1 \
+--material_random_pe_numfreq 3 \
+--material_random_pe_sigma 0.5 \
+--num_lgt_sgs 64 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 16 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.05 \
+--maxcrop 0.05 \
+--seed 250 \
+--n_iter 1501 \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283 \
+--render_gif
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/candle.obj \
+--output_dir results/demo/candle/whiteflame \
+--prompt Golden candle with a white flame. \
+--prompt2 Golden candle with a blue flame. \
+--prompt3 Golden candle with a green flame. \
+--prompt4 Golden candle with a rainbow flame. \
+--prompt5 Golden candle with a black flame. \
+--clipmodel ViT-B/32 \
+--init_r_and_s \
+--init_roughness 0.1 \
+--max_delta_theta 0.32359 \
+--max_delta_phi 0.32359 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black'  \
+--radius 2 \
+--n_views 1 \
+--material_random_pe_numfreq 3 \
+--material_random_pe_sigma 0.5 \
+--num_lgt_sgs 64 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 16 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.05 \
+--maxcrop 0.05 \
+--seed 250 \
+--n_iter 1501 \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283 \
+--render_gif
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/candle.obj \
+--output_dir results/demo/candle/blackflame \
+--prompt Golden candle with a black flame. \
+--prompt2 Golden candle with a blue flame. \
+--prompt3 Golden candle with a green flame. \
+--prompt4 Golden candle with a white flame. \
+--prompt5 Golden candle with a rainbow flame. \
+--clipmodel ViT-B/32 \
+--init_r_and_s \
+--init_roughness 0.1 \
+--max_delta_theta 0.32359 \
+--max_delta_phi 0.32359 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black'  \
+--radius 2 \
+--n_views 1 \
+--material_random_pe_numfreq 3 \
+--material_random_pe_sigma 0.5 \
+--num_lgt_sgs 64 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 16 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.05 \
+--maxcrop 0.05 \
+--seed 250 \
+--n_iter 1501 \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283 \
+--render_gif
+
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/candle.obj \
+--output_dir results/demo/candle/rainbowflame_siwon \
+--prompt Golden candle with a rainbow flame. \
+--prompt2 Golden candle with a blue flame. \
+--prompt3 Golden candle with a green flame. \
+--prompt4 Golden candle with a white flame. \
+--prompt5 Golden candle with a black flame. \
+--clipmodel ViT-B/32 \
+--init_r_and_s \
+--init_roughness 0.1 \
+--max_delta_theta 0.32359 \
+--max_delta_phi 0.32359 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black'  \
+--radius 2 \
+--n_views 1 \
+--material_random_pe_numfreq 3 \
+--material_random_pe_sigma 0.5 \
+--num_lgt_sgs 64 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 16 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.05 \
+--maxcrop 0.05 \
+--seed 250 \
+--n_iter 1501 \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283 \
+--render_gif
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/candle.obj \
+--output_dir results/demo/candle/blueflame_siwon \
+--prompt Golden candle with a blue flame. \
+--prompt2 Golden candle with a rainbow flame. \
+--prompt3 Golden candle with a green flame. \
+--prompt4 Golden candle with a white flame. \
+--prompt5 Golden candle with a black flame. \
+--clipmodel ViT-B/32 \
+--init_r_and_s \
+--init_roughness 0.1 \
+--max_delta_theta 0.32359 \
+--max_delta_phi 0.32359 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black'  \
+--radius 2 \
+--n_views 1 \
+--material_random_pe_numfreq 3 \
+--material_random_pe_sigma 0.5 \
+--num_lgt_sgs 64 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 16 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.05 \
+--maxcrop 0.05 \
+--seed 250 \
+--n_iter 1501 \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283 \
+--render_gif
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/candle.obj \
+--output_dir results/demo/candle/greenflame_siwon \
+--prompt Golden candle with a green flame. \
+--prompt2 Golden candle with a blue flame. \
+--prompt3 Golden candle with a rainbow flame. \
+--prompt4 Golden candle with a white flame. \
+--prompt5 Golden candle with a black flame. \
+--clipmodel ViT-B/32 \
+--init_r_and_s \
+--init_roughness 0.1 \
+--max_delta_theta 0.32359 \
+--max_delta_phi 0.32359 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black'  \
+--radius 2 \
+--n_views 1 \
+--material_random_pe_numfreq 3 \
+--material_random_pe_sigma 0.5 \
+--num_lgt_sgs 64 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 16 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.05 \
+--maxcrop 0.05 \
+--seed 250 \
+--n_iter 1501 \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283 \
+--render_gif
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/candle.obj \
+--output_dir results/demo/candle/whiteflame_siwon \
+--prompt Golden candle with a white flame. \
+--prompt2 Golden candle with a blue flame. \
+--prompt3 Golden candle with a green flame. \
+--prompt4 Golden candle with a rainbow flame. \
+--prompt5 Golden candle with a black flame. \
+--clipmodel ViT-B/32 \
+--init_r_and_s \
+--init_roughness 0.1 \
+--max_delta_theta 0.32359 \
+--max_delta_phi 0.32359 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black'  \
+--radius 2 \
+--n_views 1 \
+--material_random_pe_numfreq 3 \
+--material_random_pe_sigma 0.5 \
+--num_lgt_sgs 64 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 16 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.05 \
+--maxcrop 0.05 \
+--seed 250 \
+--n_iter 1501 \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283 \
+--render_gif
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/candle.obj \
+--output_dir results/demo/candle/blackflame_siwon \
+--prompt Golden candle with a black flame. \
+--prompt2 Golden candle with a blue flame. \
+--prompt3 Golden candle with a green flame. \
+--prompt4 Golden candle with a white flame. \
+--prompt5 Golden candle with a rainbow flame. \
+--clipmodel ViT-B/32 \
+--init_r_and_s \
+--init_roughness 0.1 \
+--max_delta_theta 0.32359 \
+--max_delta_phi 0.32359 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black'  \
+--radius 2 \
+--n_views 1 \
+--material_random_pe_numfreq 3 \
+--material_random_pe_sigma 0.5 \
+--num_lgt_sgs 64 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 16 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.05 \
+--maxcrop 0.05 \
+--seed 250 \
+--n_iter 1501 \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283 \
+--render_gif

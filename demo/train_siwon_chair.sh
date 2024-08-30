@@ -1,0 +1,260 @@
+CUDA_VISIBLE_DEVICES=2 python main.py  \
+--obj_path data/source_meshes/chair.obj \
+--output_dir results/demo/chair/velvet \
+--prompt Comfortable chair with velvet uphostery.   \
+--normal_random_pe_numfreq 128 \
+--normal_random_pe_sigma 12 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black' \
+--radius 1.9  \
+--n_views 3 \
+--material_random_pe_sigma 12 \
+--material_random_pe_numfreq 256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 13 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.01 \
+--maxcrop 0.03 \
+--seed 555 \
+--n_iter 1501  \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283
+
+CUDA_VISIBLE_DEVICES=2 python main.py  \
+--obj_path data/source_meshes/chair.obj \
+--output_dir results/demo/chair/wooden \
+--prompt Comfortable chair with wooden uphostery.   \
+--normal_random_pe_numfreq 128 \
+--normal_random_pe_sigma 12 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black' \
+--radius 1.9  \
+--n_views 3 \
+--material_random_pe_sigma 12 \
+--material_random_pe_numfreq 256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 13 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.01 \
+--maxcrop 0.03 \
+--seed 555 \
+--n_iter 1501  \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283
+
+CUDA_VISIBLE_DEVICES=2 python main.py  \
+--obj_path data/source_meshes/chair.obj \
+--output_dir results/demo/chair/steel \
+--prompt Comfortable chair with steel uphostery.   \
+--normal_random_pe_numfreq 128 \
+--normal_random_pe_sigma 12 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black' \
+--radius 1.9  \
+--n_views 3 \
+--material_random_pe_sigma 12 \
+--material_random_pe_numfreq 256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 13 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.01 \
+--maxcrop 0.03 \
+--seed 555 \
+--n_iter 1501  \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283
+
+CUDA_VISIBLE_DEVICES=2 python main.py  \
+--obj_path data/source_meshes/chair.obj \
+--output_dir results/demo/chair/stone \
+--prompt Comfortable chair with stone uphostery.   \
+--normal_random_pe_numfreq 128 \
+--normal_random_pe_sigma 12 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black' \
+--radius 1.9  \
+--n_views 3 \
+--material_random_pe_sigma 12 \
+--material_random_pe_numfreq 256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 13 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.01 \
+--maxcrop 0.03 \
+--seed 555 \
+--n_iter 1501  \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283
+
+CUDA_VISIBLE_DEVICES=2 python main.py  \
+--obj_path data/source_meshes/chair.obj \
+--output_dir results/demo/chair/golden \
+--prompt Comfortable chair with golden uphostery.   \
+--normal_random_pe_numfreq 128 \
+--normal_random_pe_sigma 12 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black' \
+--radius 1.9  \
+--n_views 3 \
+--material_random_pe_sigma 12 \
+--material_random_pe_numfreq 256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 13 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.01 \
+--maxcrop 0.03 \
+--seed 555 \
+--n_iter 1501  \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283
+
+
+CUDA_VISIBLE_DEVICES=2 python main_siwon.py  \
+--obj_path data/source_meshes/chair.obj \
+--output_dir results/demo/chair/velvet_siwon \
+--prompt "Comfortable chair;with velvet uphostery"   \
+--normal_random_pe_numfreq 128 \
+--normal_random_pe_sigma 12 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black' \
+--radius 1.9  \
+--n_views 3 \
+--material_random_pe_sigma 12 \
+--material_random_pe_numfreq 256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 13 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.01 \
+--maxcrop 0.03 \
+--seed 555 \
+--n_iter 1501  \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283
+
+CUDA_VISIBLE_DEVICES=2 python main_siwon.py  \
+--obj_path data/source_meshes/chair.obj \
+--output_dir results/demo/chair/wooden_siwon \
+--prompt "Comfortable chair;with wooden uphostery"   \
+--normal_random_pe_numfreq 128 \
+--normal_random_pe_sigma 12 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black' \
+--radius 1.9  \
+--n_views 3 \
+--material_random_pe_sigma 12 \
+--material_random_pe_numfreq 256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 13 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.01 \
+--maxcrop 0.03 \
+--seed 555 \
+--n_iter 1501  \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283
+
+CUDA_VISIBLE_DEVICES=2 python main_siwon.py  \
+--obj_path data/source_meshes/chair.obj \
+--output_dir results/demo/chair/metal_siwon \
+--prompt "Comfortable chair;with metal uphostery"   \
+--normal_random_pe_numfreq 128 \
+--normal_random_pe_sigma 12 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black' \
+--radius 1.9  \
+--n_views 3 \
+--material_random_pe_sigma 12 \
+--material_random_pe_numfreq 256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 13 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.01 \
+--maxcrop 0.03 \
+--seed 555 \
+--n_iter 1501  \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283
+
+CUDA_VISIBLE_DEVICES=2 python main_siwon.py  \
+--obj_path data/source_meshes/chair.obj \
+--output_dir results/demo/chair/stone_siwon \
+--prompt "Comfortable chair;with stone uphostery"   \
+--normal_random_pe_numfreq 128 \
+--normal_random_pe_sigma 12 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black' \
+--radius 1.9  \
+--n_views 3 \
+--material_random_pe_sigma 12 \
+--material_random_pe_numfreq 256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 13 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.01 \
+--maxcrop 0.03 \
+--seed 555 \
+--n_iter 1501  \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283
+
+CUDA_VISIBLE_DEVICES=2 python main_siwon.py  \
+--obj_path data/source_meshes/chair.obj \
+--output_dir results/demo/chair/golden_siwon \
+--prompt "Comfortable chair;with golden uphostery"   \
+--normal_random_pe_numfreq 128 \
+--normal_random_pe_sigma 12 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black' \
+--radius 1.9  \
+--n_views 3 \
+--material_random_pe_sigma 12 \
+--material_random_pe_numfreq 256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 13 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.01 \
+--maxcrop 0.03 \
+--seed 555 \
+--n_iter 1501  \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283

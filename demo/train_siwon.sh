@@ -1,0 +1,10 @@
+sh ./demo/train_siwon_bird.sh
+sh ./demo/train_siwon_whale.sh
+sh ./demo/train_siwon_candle.sh
+sh ./demo/train_siwon_chair.sh
+sh ./demo/train_siwon_dragon.sh
+sh ./demo/train_siwon_horse.sh
+sh ./demo/train_siwon_person.sh
+sh ./demo/train_siwon_sofa.sh
+sh ./demo/train_siwon_squirrel.sh
+sh ./demo/train_siwon_car.sh

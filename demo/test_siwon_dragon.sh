@@ -1,0 +1,330 @@
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/dragon_face73568.obj \
+--output_dir results/demo/dragon/firewing \
+--prompt "Majestic dragon with fire wings." \
+--prompt2 "Majestic dragon with ice wings." \
+--prompt3 "Majestic dragon with emerald wings." \
+--prompt4 "Majestic dragon with grass wings." \
+--prompt5 "Majestic dragon with electric wings." \
+--clipmodel ViT-B/32 \
+--width 468 \
+--background 'black' \
+--init_r_and_s \
+--init_roughness 0.7 \
+--local_percentage 0.4 \
+--symmetry \
+--radius 2.0 \
+--n_views 3 \
+--material_random_pe_sigma  20 \
+--material_random_pe_numfreq  256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1  \
+--frontview_std 2 \
+--clipavg view \
+--lr_decay 0.9 \
+--mincrop 0.05 \
+--maxcrop 0.2 \
+--seed 150 \
+--n_iter 1501 \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283   \
+--render_gif
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/dragon_face73568.obj \
+--output_dir results/demo/dragon/icewing \
+--prompt "Majestic dragon with ice wings." \
+--prompt2 "Majestic dragon with fire wings." \
+--prompt3 "Majestic dragon with emerald wings." \
+--prompt4 "Majestic dragon with grass wings." \
+--prompt5 "Majestic dragon with electric wings." \
+--clipmodel ViT-B/32 \
+--width 468 \
+--background 'black' \
+--init_r_and_s \
+--init_roughness 0.7 \
+--local_percentage 0.4 \
+--symmetry \
+--radius 2.0 \
+--n_views 3 \
+--material_random_pe_sigma  20 \
+--material_random_pe_numfreq  256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1  \
+--frontview_std 2 \
+--clipavg view \
+--lr_decay 0.9 \
+--mincrop 0.05 \
+--maxcrop 0.2 \
+--seed 150 \
+--n_iter 1501 \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283   \
+--render_gif
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/dragon_face73568.obj \
+--output_dir results/demo/dragon/emraldwing \
+--prompt "Majestic dragon with emerald wings." \
+--prompt2 "Majestic dragon with ice wings." \
+--prompt3 "Majestic dragon with fire wings." \
+--prompt4 "Majestic dragon with grass wings." \
+--prompt5 "Majestic dragon with electric wings." \
+--clipmodel ViT-B/32 \
+--width 468 \
+--background 'black' \
+--init_r_and_s \
+--init_roughness 0.7 \
+--local_percentage 0.4 \
+--symmetry \
+--radius 2.0 \
+--n_views 3 \
+--material_random_pe_sigma  20 \
+--material_random_pe_numfreq  256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1  \
+--frontview_std 2 \
+--clipavg view \
+--lr_decay 0.9 \
+--mincrop 0.05 \
+--maxcrop 0.2 \
+--seed 150 \
+--n_iter 1501 \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283   \
+--render_gif
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/dragon_face73568.obj \
+--output_dir results/demo/dragon/grasswing \
+--prompt "Majestic dragon with grass wings." \
+--prompt2 "Majestic dragon with ice wings." \
+--prompt3 "Majestic dragon with emerald wings." \
+--prompt4 "Majestic dragon with fire wings." \
+--prompt5 "Majestic dragon with electric wings." \
+--clipmodel ViT-B/32 \
+--width 468 \
+--background 'black' \
+--init_r_and_s \
+--init_roughness 0.7 \
+--local_percentage 0.4 \
+--symmetry \
+--radius 2.0 \
+--n_views 3 \
+--material_random_pe_sigma  20 \
+--material_random_pe_numfreq  256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1  \
+--frontview_std 2 \
+--clipavg view \
+--lr_decay 0.9 \
+--mincrop 0.05 \
+--maxcrop 0.2 \
+--seed 150 \
+--n_iter 1501 \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283   \
+--render_gif
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/dragon_face73568.obj \
+--output_dir results/demo/dragon/electricwing \
+--prompt "Majestic dragon with electric wings." \
+--prompt2 "Majestic dragon with ice wings." \
+--prompt3 "Majestic dragon with emerald wings." \
+--prompt4 "Majestic dragon with grass wings." \
+--prompt5 "Majestic dragon with fire wings." \
+--clipmodel ViT-B/32 \
+--width 468 \
+--background 'black' \
+--init_r_and_s \
+--init_roughness 0.7 \
+--local_percentage 0.4 \
+--symmetry \
+--radius 2.0 \
+--n_views 3 \
+--material_random_pe_sigma  20 \
+--material_random_pe_numfreq  256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1  \
+--frontview_std 2 \
+--clipavg view \
+--lr_decay 0.9 \
+--mincrop 0.05 \
+--maxcrop 0.2 \
+--seed 150 \
+--n_iter 1501 \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283   \
+--render_gif
+
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/dragon_face73568.obj \
+--output_dir results/demo/dragon/firewing_siwon \
+--prompt "Majestic dragon with fire wings." \
+--prompt2 "Majestic dragon with ice wings." \
+--prompt3 "Majestic dragon with emerald wings." \
+--prompt4 "Majestic dragon with grass wings." \
+--prompt5 "Majestic dragon with electric wings." \
+--clipmodel ViT-B/32 \
+--width 468 \
+--background 'black' \
+--init_r_and_s \
+--init_roughness 0.7 \
+--local_percentage 0.4 \
+--symmetry \
+--radius 2.0 \
+--n_views 3 \
+--material_random_pe_sigma  20 \
+--material_random_pe_numfreq  256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1  \
+--frontview_std 2 \
+--clipavg view \
+--lr_decay 0.9 \
+--mincrop 0.05 \
+--maxcrop 0.2 \
+--seed 150 \
+--n_iter 1501 \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283   \
+--render_gif
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/dragon_face73568.obj \
+--output_dir results/demo/dragon/icewing_siwon \
+--prompt "Majestic dragon with ice wings." \
+--prompt2 "Majestic dragon with fire wings." \
+--prompt3 "Majestic dragon with emerald wings." \
+--prompt4 "Majestic dragon with grass wings." \
+--prompt5 "Majestic dragon with electric wings." \
+--clipmodel ViT-B/32 \
+--width 468 \
+--background 'black' \
+--init_r_and_s \
+--init_roughness 0.7 \
+--local_percentage 0.4 \
+--symmetry \
+--radius 2.0 \
+--n_views 3 \
+--material_random_pe_sigma  20 \
+--material_random_pe_numfreq  256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1  \
+--frontview_std 2 \
+--clipavg view \
+--lr_decay 0.9 \
+--mincrop 0.05 \
+--maxcrop 0.2 \
+--seed 150 \
+--n_iter 1501 \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283   \
+--render_gif
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/dragon_face73568.obj \
+--output_dir results/demo/dragon/emeraldwing_siwon \
+--prompt "Majestic dragon with emerald wings." \
+--prompt2 "Majestic dragon with ice wings." \
+--prompt3 "Majestic dragon with fire wings." \
+--prompt4 "Majestic dragon with grass wings." \
+--prompt5 "Majestic dragon with electric wings." \
+--clipmodel ViT-B/32 \
+--width 468 \
+--background 'black' \
+--init_r_and_s \
+--init_roughness 0.7 \
+--local_percentage 0.4 \
+--symmetry \
+--radius 2.0 \
+--n_views 3 \
+--material_random_pe_sigma  20 \
+--material_random_pe_numfreq  256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1  \
+--frontview_std 2 \
+--clipavg view \
+--lr_decay 0.9 \
+--mincrop 0.05 \
+--maxcrop 0.2 \
+--seed 150 \
+--n_iter 1501 \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283   \
+--render_gif
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/dragon_face73568.obj \
+--output_dir results/demo/dragon/grasswing_siwon \
+--prompt "Majestic dragon with grass wings." \
+--prompt2 "Majestic dragon with ice wings." \
+--prompt3 "Majestic dragon with emerald wings." \
+--prompt4 "Majestic dragon with fire wings." \
+--prompt5 "Majestic dragon with electric wings." \
+--clipmodel ViT-B/32 \
+--width 468 \
+--background 'black' \
+--init_r_and_s \
+--init_roughness 0.7 \
+--local_percentage 0.4 \
+--symmetry \
+--radius 2.0 \
+--n_views 3 \
+--material_random_pe_sigma  20 \
+--material_random_pe_numfreq  256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1  \
+--frontview_std 2 \
+--clipavg view \
+--lr_decay 0.9 \
+--mincrop 0.05 \
+--maxcrop 0.2 \
+--seed 150 \
+--n_iter 1501 \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283   \
+--render_gif
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/dragon_face73568.obj \
+--output_dir results/demo/dragon/electricwing_siwon \
+--prompt "Majestic dragon with electric wings." \
+--prompt2 "Majestic dragon with ice wings." \
+--prompt3 "Majestic dragon with emerald wings." \
+--prompt4 "Majestic dragon with grass wings." \
+--prompt5 "Majestic dragon with fire wings." \
+--clipmodel ViT-B/32 \
+--width 468 \
+--background 'black' \
+--init_r_and_s \
+--init_roughness 0.7 \
+--local_percentage 0.4 \
+--symmetry \
+--radius 2.0 \
+--n_views 3 \
+--material_random_pe_sigma  20 \
+--material_random_pe_numfreq  256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1  \
+--frontview_std 2 \
+--clipavg view \
+--lr_decay 0.9 \
+--mincrop 0.05 \
+--maxcrop 0.2 \
+--seed 150 \
+--n_iter 1501 \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283   \
+--render_gif

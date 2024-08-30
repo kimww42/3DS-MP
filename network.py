@@ -31,7 +31,7 @@ def compute_energy(lgtSGs):
     energy = lgtMu * 2.0 * np.pi / lgtLambda * (1.0 - torch.exp(-2.0 * lgtLambda))
     return energy
 
-class svbrdf_network(nn.Module):
+class svbrdf_network(nn.Module): 
     def __init__(self, 
                  material_random_pe_numfreq=128, 
                  dim=256,

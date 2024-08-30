@@ -1,0 +1,320 @@
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/Sofa.obj \
+--output_dir results/demo/Sofa/velvet \
+--prompt Comfortable Sofa with velvet uphostery.   \
+--prompt2 Comfortable Sofa with wooden uphostery.   \
+--prompt3 Comfortable Sofa with steel uphostery.   \
+--prompt4 Comfortable Sofa with stone uphostery.   \
+--prompt5 Comfortable Sofa with golden uphostery.   \
+--clipmodel ViT-B/32 \
+--normal_random_pe_numfreq 128 \
+--normal_random_pe_sigma 12 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black' \
+--radius 1.9  \
+--n_views 3 \
+--material_random_pe_sigma 12 \
+--material_random_pe_numfreq 256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 13 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.01 \
+--maxcrop 0.03 \
+--seed 555 \
+--n_iter 1501  \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283 \
+--render_gif
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/Sofa.obj \
+--output_dir results/demo/Sofa/wooden \
+--prompt Comfortable Sofa with wooden uphostery.   \
+--prompt2 Comfortable Sofa with velvet uphostery.   \
+--prompt3 Comfortable Sofa with steel uphostery.   \
+--prompt4 Comfortable Sofa with stone uphostery.   \
+--prompt5 Comfortable Sofa with golden uphostery.   \
+--clipmodel ViT-B/32 \
+--normal_random_pe_numfreq 128 \
+--normal_random_pe_sigma 12 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black' \
+--radius 1.9  \
+--n_views 3 \
+--material_random_pe_sigma 12 \
+--material_random_pe_numfreq 256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 13 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.01 \
+--maxcrop 0.03 \
+--seed 555 \
+--n_iter 1501  \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283 \
+--render_gif
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/Sofa.obj \
+--output_dir results/demo/Sofa/steel \
+--prompt Comfortable Sofa with steel uphostery.   \
+--prompt2 Comfortable Sofa with wooden uphostery.   \
+--prompt3 Comfortable Sofa with velvet uphostery.   \
+--prompt4 Comfortable Sofa with stone uphostery.   \
+--prompt5 Comfortable Sofa with golden uphostery.   \
+--clipmodel ViT-B/32 \
+--normal_random_pe_numfreq 128 \
+--normal_random_pe_sigma 12 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black' \
+--radius 1.9  \
+--n_views 3 \
+--material_random_pe_sigma 12 \
+--material_random_pe_numfreq 256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 13 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.01 \
+--maxcrop 0.03 \
+--seed 555 \
+--n_iter 1501  \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283 \
+--render_gif
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/Sofa.obj \
+--output_dir results/demo/Sofa/stone \
+--prompt Comfortable Sofa with stone uphostery.   \
+--prompt2 Comfortable Sofa with wooden uphostery.   \
+--prompt3 Comfortable Sofa with steel uphostery.   \
+--prompt4 Comfortable Sofa with velvet uphostery.   \
+--prompt5 Comfortable Sofa with golden uphostery.   \
+--clipmodel ViT-B/32 \
+--normal_random_pe_numfreq 128 \
+--normal_random_pe_sigma 12 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black' \
+--radius 1.9  \
+--n_views 3 \
+--material_random_pe_sigma 12 \
+--material_random_pe_numfreq 256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 13 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.01 \
+--maxcrop 0.03 \
+--seed 555 \
+--n_iter 1501  \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283 \
+--render_gif
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/Sofa.obj \
+--output_dir results/demo/Sofa/golden \
+--prompt Comfortable Sofa with golden uphostery.   \
+--prompt2 Comfortable Sofa with wooden uphostery.   \
+--prompt3 Comfortable Sofa with steel uphostery.   \
+--prompt4 Comfortable Sofa with stone uphostery.   \
+--prompt5 Comfortable Sofa with velvet uphostery.   \
+--clipmodel ViT-B/32 \
+--normal_random_pe_numfreq 128 \
+--normal_random_pe_sigma 12 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black' \
+--radius 1.9  \
+--n_views 3 \
+--material_random_pe_sigma 12 \
+--material_random_pe_numfreq 256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 13 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.01 \
+--maxcrop 0.03 \
+--seed 555 \
+--n_iter 1501  \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283 \
+--render_gif
+
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/Sofa.obj \
+--output_dir results/demo/Sofa/velvet_siwon \
+--prompt Comfortable Sofa with velvet uphostery.   \
+--prompt2 Comfortable Sofa with wooden uphostery.   \
+--prompt3 Comfortable Sofa with steel uphostery.   \
+--prompt4 Comfortable Sofa with stone uphostery.   \
+--prompt5 Comfortable Sofa with golden uphostery.   \
+--clipmodel ViT-B/32 \
+--normal_random_pe_numfreq 128 \
+--normal_random_pe_sigma 12 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black' \
+--radius 1.9  \
+--n_views 3 \
+--material_random_pe_sigma 12 \
+--material_random_pe_numfreq 256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 13 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.01 \
+--maxcrop 0.03 \
+--seed 555 \
+--n_iter 1501  \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283 \
+--render_gif
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/Sofa.obj \
+--output_dir results/demo/Sofa/wooden_siwon \
+--prompt Comfortable Sofa with wooden uphostery.   \
+--prompt2 Comfortable Sofa with velvet uphostery.   \
+--prompt3 Comfortable Sofa with steel uphostery.   \
+--prompt4 Comfortable Sofa with stone uphostery.   \
+--prompt5 Comfortable Sofa with golden uphostery.   \
+--clipmodel ViT-B/32 \
+--normal_random_pe_numfreq 128 \
+--normal_random_pe_sigma 12 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black' \
+--radius 1.9  \
+--n_views 3 \
+--material_random_pe_sigma 12 \
+--material_random_pe_numfreq 256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 13 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.01 \
+--maxcrop 0.03 \
+--seed 555 \
+--n_iter 1501  \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283 \
+--render_gif
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/Sofa.obj \
+--output_dir results/demo/Sofa/metal_siwon \
+--prompt Comfortable Sofa with metal uphostery.   \
+--prompt2 Comfortable Sofa with wooden uphostery.   \
+--prompt3 Comfortable Sofa with velvet uphostery.   \
+--prompt4 Comfortable Sofa with stone uphostery.   \
+--prompt5 Comfortable Sofa with golden uphostery.   \
+--clipmodel ViT-B/32 \
+--normal_random_pe_numfreq 128 \
+--normal_random_pe_sigma 12 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black' \
+--radius 1.9  \
+--n_views 3 \
+--material_random_pe_sigma 12 \
+--material_random_pe_numfreq 256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 13 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.01 \
+--maxcrop 0.03 \
+--seed 555 \
+--n_iter 1501  \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283 \
+--render_gif
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/Sofa.obj \
+--output_dir results/demo/Sofa/stone_siwon \
+--prompt Comfortable Sofa with stone uphostery.   \
+--prompt2 Comfortable Sofa with wooden uphostery.   \
+--prompt3 Comfortable Sofa with steel uphostery.   \
+--prompt4 Comfortable Sofa with velvet uphostery.   \
+--prompt5 Comfortable Sofa with golden uphostery.   \
+--clipmodel ViT-B/32 \
+--normal_random_pe_numfreq 128 \
+--normal_random_pe_sigma 12 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black' \
+--radius 1.9  \
+--n_views 3 \
+--material_random_pe_sigma 12 \
+--material_random_pe_numfreq 256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 13 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.01 \
+--maxcrop 0.03 \
+--seed 555 \
+--n_iter 1501  \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283 \
+--render_gif
+
+CUDA_VISIBLE_DEVICES=2 python eval.py  \
+--obj_path data/source_meshes/Sofa.obj \
+--output_dir results/demo/Sofa/golden_siwon \
+--prompt Comfortable Sofa with golden uphostery.   \
+--prompt2 Comfortable Sofa with wooden uphostery.   \
+--prompt3 Comfortable Sofa with steel uphostery.   \
+--prompt4 Comfortable Sofa with stone uphostery.   \
+--prompt5 Comfortable Sofa with velvet uphostery.   \
+--clipmodel ViT-B/32 \
+--normal_random_pe_numfreq 128 \
+--normal_random_pe_sigma 12 \
+--width 512 \
+--local_percentage 0.3 \
+--background 'black' \
+--radius 1.9  \
+--n_views 3 \
+--material_random_pe_sigma 12 \
+--material_random_pe_numfreq 256 \
+--num_lgt_sgs 32 \
+--n_normaugs 4 \
+--n_augs 1 \
+--frontview_std 13 \
+--clipavg view \
+--lr_decay 0.7 \
+--mincrop 0.01 \
+--maxcrop 0.03 \
+--seed 555 \
+--n_iter 1501  \
+--learning_rate 0.0005 \
+--frontview_center 1.96349 0.6283 \
+--render_gif

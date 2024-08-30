@@ -1,7 +1,7 @@
-python main.py \
+CUDA_VISIBLE_DEVICES="3" python main.py \
 --obj_path data/source_meshes/dragon_face73568.obj \
 --output_dir results/demo/dragon/fire1 \
---prompt "a fire dragon" \
+--prompt "a Ice Dragon;Iron Man Suit" \
 --width 468 \
 --background 'black' \
 --init_r_and_s \
@@ -23,4 +23,4 @@ python main.py \
 --seed 150 \
 --n_iter 1501 \
 --learning_rate 0.0005 \
- --frontview_center 1.96349 0.6283  
+--frontview_center 1.96349 0.6283  

@@ -11,6 +11,102 @@ import open3d as o3d
 from sg_render import compute_envmap
 import imageio
 import os.path as osp
+from torchvision import transforms
+
+import clip
+from utils import clip_model
+from utils import device
+from PIL import Image
+
+def get_clip_r_precision(args):
+    # Load CLIP model
+    clip_model, preprocess = clip.load(args.clipmodel, device, jit=args.jit)
+
+    if args.prompt:
+        # prompt = ' '.join("yellow car with yellow spoiler")
+        # prompt2 = ' '.join("yellow car with red spoiler")
+        prompt = ' '.join(args.prompt)
+        prompt2 = ' '.join(args.prompt2)
+        prompt3 = ' '.join(args.prompt3)
+        prompt4 = ' '.join(args.prompt4)
+        prompt5 = ' '.join(args.prompt5)
+
+        prompt_token = clip.tokenize([prompt]).to(device)
+        prompt2_token = clip.tokenize([prompt2]).to(device)
+        prompt3_token = clip.tokenize([prompt3]).to(device)
+        prompt4_token = clip.tokenize([prompt4]).to(device)
+        prompt5_token = clip.tokenize([prompt5]).to(device)
+
+        encoded_text = clip_model.encode_text(prompt_token)
+        encoded_text2 = clip_model.encode_text(prompt2_token)
+        encoded_text3 = clip_model.encode_text(prompt3_token)
+        encoded_text4 = clip_model.encode_text(prompt4_token)
+        encoded_text5 = clip_model.encode_text(prompt5_token)
+
+        # Save prompt
+        with open(os.path.join(args.output_dir, prompt), "w") as f:
+            f.write("")
+
+        norm_encoded = encoded_text
+
+
+    if args.clipmodel == "ViT-B/32" : 
+        res = 224
+    elif args.clipmodel == "ViT-L/14@336px" :
+        res = 336
+
+    augment_transform = transforms.Compose([
+        transforms.ToTensor(),
+        transforms.RandomResizedCrop(res, scale=(1, 1)), #Obtain a thumbnail image to meet the requirements of clip's input image size
+    ])
+    
+    sim_real = 0
+    sim_2 = 0
+    sim_3 = 0
+    sim_4 = 0
+    sim_5 = 0
+
+    for i in range(8):
+        image = Image.open(args.output_dir + '/rgb/iter_test_rgb_' + str(i).zfill(3) + '.jpg')
+        # import pdb; pdb.set_trace()
+        image = augment_transform(image).unsqueeze(0).to(device)
+        encoded_image = clip_model.encode_image(image)
+        sim_real += torch.cosine_similarity(torch.mean(encoded_image, dim=0), torch.mean(encoded_text, dim=0), dim=0).item()
+        sim_2 += torch.cosine_similarity(torch.mean(encoded_image, dim=0), torch.mean(encoded_text2, dim=0), dim=0).item()
+        sim_3 += torch.cosine_similarity(torch.mean(encoded_image, dim=0), torch.mean(encoded_text3, dim=0), dim=0).item()
+        sim_4 += torch.cosine_similarity(torch.mean(encoded_image, dim=0), torch.mean(encoded_text4, dim=0), dim=0).item()
+        sim_5 += torch.cosine_similarity(torch.mean(encoded_image, dim=0), torch.mean(encoded_text5, dim=0), dim=0).item()
+
+    sim_real /= 8
+    sim_2 /= 8
+    sim_3 /= 8
+    sim_4 /= 8
+    sim_5 /= 8
+
+    print(sim_real, sim_2, sim_3, sim_4, sim_5)
+    
+        # 변수 이름과 값을 딕셔너리에 저장
+    variables = {'a': sim_real, 'b': sim_2, 'c': sim_3, 'd': sim_4, 'e': sim_5}
+
+    # 변수의 값을 기준으로 정렬하여 상위 3개 선택
+    top_3 = sorted(variables.items(), key=lambda item: item[1], reverse=True)[:3]
+
+        # 상위 3개의 변수 이름 추출
+    top_3_names = [name for name, value in top_3]
+
+    # 'a'가 상위 3개 안에 있는지 확인
+    if 'a' in top_3_names:
+        with open(os.path.join(args.output_dir, f'rrr_{args.clipmodel[:5]}_top3_yes'), "w") as f:
+            f.write("")
+        
+    if (max(sim_real, sim_2, sim_3, sim_4, sim_5) == sim_real) :
+        with open(os.path.join(args.output_dir, f'rrr_{args.clipmodel[:5]}_top1_yes'), "w") as f:
+            f.write("")
+    
+    with open(os.path.join(args.output_dir, f'rrr_{args.clipmodel[:5]}_{sim_real}_clipscore'), "w") as f:
+            f.write("")
+
+
 
 def save_gif(dir,fps):
     imgpath = dir
@@ -64,6 +160,7 @@ def test(args):
 
     n_augs = args.n_augs
     dir = args.output_dir
+    os.environ["OPENCV_IO_ENABLE_OPENEXR"]="1"
     
     model = NeuralStyleField(args.material_random_pe_numfreq,
                              args.material_random_pe_sigma,
@@ -83,8 +180,17 @@ def test(args):
                              args.normal_random_pe_sigma,
                              args.if_normal_clamp
                             )
-    state_dict = torch.load(args.model_dir)
-    model.load_state_dict(state_dict['model'])
+    state_dict = torch.load(args.output_dir + '/iter1500.pth')
+    model_state_dict = model.state_dict()
+
+    # 예상치 못한 키 제거
+    for key in list(state_dict['model'].keys()):
+        if key not in model_state_dict:
+            del state_dict['model'][key]
+
+    # 수정된 state_dict 로드
+    model.load_state_dict(state_dict['model'], strict=False)
+    
     model.eval()
     envmap = compute_envmap(lgtSGs=model.svbrdf_network.get_light(), H=256, W=512, upper_hemi=model.svbrdf_network.upper_hemi)
     envmap = envmap.cpu().numpy()
@@ -119,9 +225,9 @@ def test(args):
     if args.render_singer_view:
         view_num=1
     if args.render_gif:
-        view_num=100
-    if view_num == 100:
-        azim = torch.linspace(0, 2 * np.pi + 0, view_num)  # since 0 = 2π dont include last element
+        view_num=8
+    if view_num == 8:
+        azim = torch.linspace(0, 2 * np.pi, view_num + 1)[:-1]  # since 0 = 2π dont include last element
         elev = torch.tensor(args.frontview_center[1])    
         for i in tqdm(range(view_num)):   
         
@@ -182,9 +288,15 @@ if __name__ == '__main__':
     parser.add_argument('--background', type=str, default='black') #the background of render image.'black','white' or 'gaussian' can be selected
     parser.add_argument('--local_percentage',type=float, default=0.7) #percent threshold of the object's mask in cropped image.It will be cropped again
                                                                       #if the proportion of the object's mask in cropped image is less than this threshold.
-                                                                      #This parameter can effectively prevent image degradation
+    parser.add_argument('--clipmodel', type=str, default='ViT-B/32')
+    parser.add_argument('--jit', action="store_true")                                                                 #This parameter can effectively prevent image degradation
     parser.add_argument('--obj_path', type=str, default='meshes/mesh1.obj') #the storage path of raw or original mesh
     parser.add_argument('--prompt', nargs="+", default='a pig with pants') #the text prompt to style a raw mesh
+    parser.add_argument('--prompt2', nargs="+", default='a pig with pants') #the text prompt to style a raw mesh
+    parser.add_argument('--prompt3', nargs="+", default='a pig with pants') #the text prompt to style a raw mesh
+    parser.add_argument('--prompt4', nargs="+", default='a pig with pants') #the text prompt to style a raw mesh
+    parser.add_argument('--prompt5', nargs="+", default='a pig with pants') #the text prompt to style a raw mesh
+
     parser.add_argument('--output_dir', type=str, default='round2/alpha5') #directory where the results will be saved
     parser.add_argument('--learning_rate', type=float, default=0.0005)
     parser.add_argument('--lr_decay', type=float, default=1) #decay factor of learning rate
@@ -210,3 +322,4 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     test(args)
+    get_clip_r_precision(args)

@@ -202,12 +202,13 @@ class NeuralStyleField(nn.Module):
         return images, normal1, normal2, roughness, diffuse, specular 
 
     def forward(self, scene, num_views=8, std=8, center_elev=0, center_azim=0):
-        if num_views>1:
-            self.elev = torch.cat((torch.tensor([center_elev]), torch.randn(num_views - 1) * np.pi / std + center_elev))
-            self.azim = torch.cat((torch.tensor([center_azim]),torch.randn(num_views - 1) * 2 * np.pi / std + center_azim))
-        if num_views==1:
-            self.elev =  torch.randn(num_views) * np.pi /std+ center_elev
-            self.azim += torch.rand(num_views) * 0.1
+        if num_views > 1:
+            self.elev = torch.tensor([center_elev] * num_views)  # 모든 뷰에서 고도를 0으로 설정
+            self.azim = torch.tensor([center_azim + i * (np.pi / 4) for i in range(num_views)])  # 45도씩 증가
+        elif num_views == 1:
+            self.elev = torch.tensor([center_elev])  # 하나의 뷰에서 고도를 0으로 설정
+            self.azim = torch.tensor([center_azim])  # 하나의 뷰에서 방위각을 0으로 설정
+            
         images_and_masks = []
         for i in range(num_views):
             rays = get_rays(self.elev[i], self.azim[i], r=self.radius,width=self.width)
@@ -238,9 +239,9 @@ class NeuralStyleField(nn.Module):
             mask = torch.from_numpy(hit.numpy()).float().cuda().reshape(1,self.width,self.width,1)
             image = sg_rgb_values.reshape(self.width,self.width,3).unsqueeze(0)   
             image = torch.clamp(image, 0, 1)
-            image_and_mask = torch.cat((image,mask),dim=3)
+            image_and_mask = torch.cat((image, mask), dim=3).permute(0, 3, 1, 2)
             images_and_masks.append(image_and_mask)
-        images_and_masks = torch.cat(images_and_masks, dim=0).permute(0, 3, 1, 2)
+        # images_and_masks = torch.cat(images_and_masks, dim=0).permute(0, 3, 1, 2)
         
         return images_and_masks
     
